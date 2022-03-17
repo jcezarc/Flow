@@ -28,7 +28,7 @@ def main(project: str, env: str, flag: str):
 print('FLOW'.center(50, '-'))
 print('-' * 50)
 if len(sys.argv) < 3:
-    print('Usage: python3 args.py project env [start/end]')
+    print('Usage: python3 FLOW.py project env [start/end]')
 else:
     params = [a for i, a in enumerate(sys.argv) if i > 0]
     main(*params)

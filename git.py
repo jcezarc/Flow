@@ -7,9 +7,7 @@ class Git:
     def __init__(self, path: str, repo: str=''):
         if not os.path.exists(path): 
             self.clone(URL_GITHUB.format(repo=repo, path=path))
-            os.chdir(path)
-        else:
-            os.chdir(path)
+        os.chdir(path)
 
     def clone(self, url: str):
         os.system('git clone ' + url)
