@@ -9,7 +9,7 @@ class Conda:
 
     def env_list(self) -> list:
         lines = os.popen('conda env list').read().split('\n')[2:]
-        retur [d[0] for d in [c.split() for c in lines] if d]
+        return [d[0] for d in [c.split() for c in lines] if d]
 
     def activate(self, env: str):
         os.system('conda activate ' + env)
