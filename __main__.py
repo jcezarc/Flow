@@ -20,7 +20,7 @@ def main(project: str, env: str, flag: str):
     if flag == 'start': # ---- Inicia a primeira tarefa atribuída a você:
         task.update(started = True) #--- marca como DOING
         git.pull()
-    else:
+    elif flag == 'end':
         git.commit(task.fields.summary)
         git.push()
         conda.deactivate()
