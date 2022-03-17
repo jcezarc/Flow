@@ -5,7 +5,7 @@ from git import Git
 from conda import Conda
 
 
-def main(project: str, env: str, flag: str):
+def main(project: str, env: str, flag: str=''):
     company_name = os.environ['COMPANY_NAME']
     task = tasks_assigned_to_me({
         'url': os.environ['JIRA_URL'],
