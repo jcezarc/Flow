@@ -12,7 +12,7 @@ class PullRequest:
     def write(self, db_function: callable):
         for file, lines in self.git.diff().items():
             db_function(Commands(
-                Review(author=self.author, file=file, lines=lines)                
+                Review(author=self.author, file=file, lines='\n'.join(lines))
             ).sql['insert'])
 
     def read(self, db_function: callable):
