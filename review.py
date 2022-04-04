@@ -23,13 +23,13 @@ class Review:
 
     def approve(self, reviewer: str):
         vote_list = [v for v in self.votes.split(',') if v]
-        if reviewer not in vote_list:
+        if reviewer and reviewer not in vote_list:
             vote_list.append(reviewer)
             self.votes = ','.join(vote_list)
             self.comment = ''
         return len(vote_list)
 
     def report_problem(self, reason: int):
-        if len(self.votes) > 2:
+        if self.approve('') > 2:
             raise Exception('A tarefa já foi aprovada.')
         self.comment = REASONS[reason]

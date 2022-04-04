@@ -22,11 +22,10 @@ def main(project: str, env: str, flag: str=''):
         task.update(started = True) #--- marca como DOING
         git.pull()
     elif flag == 'end':
-        PullRequest(git).write(db_function)
+        PullRequest(git).write(db_function)  # [To-Do] Definir  `db_function` <<
         git.commit(task.fields.summary)
         git.push()
         conda.deactivate()
-    # [To-Do] Code Review com `git diff`
 
 
 print('FLOW'.center(50, '-'))
