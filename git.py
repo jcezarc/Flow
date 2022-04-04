@@ -31,8 +31,14 @@ class Git:
         )
         os.system(command)
 
-    def status(self):
-        return os.popen('git status').read()
-    
     def branch(self):
         return os.popen('git branch').read().split('\n')
+
+    def diff(self, extension='.py') -> dict:
+        result = {}
+        for line in os.popen('git diff').read().split('\n'):
+            if line.endswith(extension):
+                file_name = line.split('/')[-1]
+            elif line and line[0] in '+-':
+                result.setdefault(file_name, []).append(line)
+        return result
