@@ -15,8 +15,8 @@ class Review:
         self.created_at = args.get('created_at', str(datetime.now()))
         self.comment = args.get('comment', '')
         self.votes = args.get('votes', '')
-    @classmethod
 
+    @classmethod
     def next_id(cls):
         cls.last_id += 1
         return cls.last_id
